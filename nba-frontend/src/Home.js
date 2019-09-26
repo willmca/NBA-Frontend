@@ -14,27 +14,32 @@ const PlayerContainer = styled.section`
 export default class Home extends Component {
     constructor(props) {
         super(props);
+        this.deletePlayer = this.deletePlayer.bind(this);
+    }
+    deletePlayer() {
+        console.log("Button works")
     }
 
     render() {
+        
         return (
             <div className="main">
                 <PlayerContainer>
                     {this.props.players.map((player, index) => {
                         return (
-                        <div className="playa">
-                            <Link to={`/${player.name}`}>
-                                <Player
-                                    player={player}
-                                    key={index}
-                                    imgSrc={player.photo}
-                                    imgAlt={player.name}
-                                     />
-                            </Link>
-                              <Link>
-                        
-                              <button>Click here to delete this player</button></Link>
-                        </div>
+                            <div className="playa">
+                                <Link to={`/player/${player.name}`}>
+                                    <Player
+                                        player={player}
+                                        key={index}
+                                        imgSrc={player.photo}
+                                        imgAlt={player.name}
+                                    />
+                                </Link>
+
+
+                                <button onClick={this.deletePlayer}>Click here to delete {player.name}</button>
+                            </div>
 
                         )
 

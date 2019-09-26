@@ -5,6 +5,8 @@ import styled, { ThemeProvider } from "styled-components"
 import './App.css';
 import Home from './Home'
 import ShowPlayer from "./ShowPlayer"
+import Help from './Help'
+import Create from './Create'
 
 const NBAHeader = styled.header`
 background-color:blue;
@@ -34,14 +36,21 @@ class App extends Component {
     <div className="App">
     <NBAHeader>
       <ul>
-        <Link to="/"></Link>
+        <Link to="/">
         <li>Home</li>
-        <li>Help</li>
+        </Link>
+        <Link to ="/info">
+        <li>Info</li>
+        </Link>
+        <Link to ="/create">
         <li>Create Player</li>
+        </Link>
       </ul>  
     </NBAHeader>
     <Route path="/" exact render={props => <Home {...props} {...this.state}/>} />
-    <Route path="/:playerName" exact render={(routerProps) => <ShowPlayer {...routerProps} {...this.state} />}/>
+    <Route path="/player/:playerName" exact render={(routerProps) => <ShowPlayer {...routerProps} {...this.state} />}/>
+    <Route path="/info" exact render={props => <Help  {...this.props}/>}/>
+    <Route path="/create" exat render={props => < Create {...this.props}/>}/>
     </div>
   )
 };
