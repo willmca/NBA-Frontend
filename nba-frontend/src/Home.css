@@ -1,0 +1,10 @@
+.main{
+    margin-top:50px;
+}
+.playa:hover{
+    background-color:orange;
+}
+button{
+    height:40px;
+    width:120px;
+}
